@@ -94,8 +94,10 @@ func (yanks *yanks) handleRequest(c net.Conn) {
 	if err != nil {
 		fmt.Printf("Parse error: %v\n", err)
 	}
+	for i := range entries {
+		fmt.Printf("%.1f%% %s", entries[i].cumP, entries[i].fn)
+	}
 	cmd.Wait()
-	fmt.Printf("%+v\n", entries)
 }
 
 func (yanks *yanks) collector() {
